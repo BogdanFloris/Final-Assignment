@@ -3,7 +3,7 @@
  * Authors: HTI students, Spring 2013, Adjusted by N.Stash
  */
 
-PutXml("http://wwwis.win.tue.nl/2id40-ws/100/".$_POST["attribute"],$_POST['content']);
+PutXml("http://wwwis.win.tue.nl/2id40-ws/34/".$_POST["attribute"],$_POST['content']);
 
 function PutXml($url, $xml) {
     $filename = "data.xml";

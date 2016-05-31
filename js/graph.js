@@ -23,7 +23,7 @@ var currentDay="Monday";
 function getdata(attribute, callback) {
 	$.ajax({
 		type: "GET",
-		url: "http://wwwis.win.tue.nl/2id40-ws/100/"+attribute,
+		url: "http://wwwis.win.tue.nl/2id40-ws/34/"+attribute,
 		dataType: "xml",
 		success: function(xml) {
 			var val = $(xml).eq(0).text();
