@@ -7,7 +7,8 @@ body
   background-color: #F2F2F2;
   height: 450px;
   width: 320px;
-  margin: 0;
+  margin-bottom: : 0;
+  margin-top: 0;
 }
 .navbar {
 	margin-bottom: 0;
@@ -20,6 +21,24 @@ body
 	font-size: 16px;
   position: relative;
   --right: 12px;
+}
+.navbar-inverse .navbar-nav li a:hover
+{
+  background-color: inherit;
+}
+.dropdown-toggle
+{
+  background-color: #00688B;
+}
+.navbar-header a
+{
+  position: relative;
+  right: -20px;
+}
+.navbar-left
+{
+  position: relative;
+  left: -16px;
 }
 .dropdown-menu
 {
