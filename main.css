@@ -1,15 +1,14 @@
 body
 {
-  color: white;
+  background-color: #F2F2F2;
   font-family: 'Open Sans', sans-serif;
 }
 .jumbotron
 {
   background-color: #F2F2F2;
   height: 100vh;
-  --width: 320px;
+  width: 100%;
   margin-bottom: : 0;
-  margin-top: 0;
 }
 .navbar {
 	margin-bottom: 0;
@@ -46,18 +45,34 @@ body
   color: black;
   text-align: center;
   height: 200px;
-  width: 350px;
+  width: 100%;
 }
 .input-group input
 {
   height: 200px;
-  width: 350px;
-  font-size: 120px;
+  width: 100%%;
+  font-size: 100px;
   text-align: center;
   position: relative;
 
 }
 .input-group-addon
 {
-  font-size: 120px;
+  font-size: 100px;
+}
+.radio
+{
+  text-align: left;
+  font-size: 25px;
+  color: #5C5C5C;
+  position: relative;
+  left: 0px;
+  margin-bottom: 15px;
+}
+.btn-primary
+{
+  margin-top: 20px;
+  font-size: 25px;
+  height: 70px;
+  width: 100%;
 }
