@@ -16,38 +16,22 @@ body
   width: 320px;
   background-color: #00688B;
 }
-.navbar-inverse .navbar-nav li a {
-	color: #f7f7f7;
-	font-size: 16px;
-  position: relative;
-  --right: 12px;
-}
 .navbar-inverse .navbar-nav li a:hover
 {
   background-color: inherit;
 }
-.dropdown-toggle
+.navbar-brand
 {
-  background-color: #00688B;
+  color: #fff;
 }
 .navbar-header a
 {
   position: relative;
   right: -20px;
+  color: #fff;
 }
 .navbar-left
 {
   position: relative;
   left: -16px;
-}
-.dropdown-menu
-{
-  color: #fff;
-  background-color: #00688B;
-  --position: relative;
-  --left: 12px;
-}
-.dropdown-menu li a:hover
-{
-  color: black;
 }
