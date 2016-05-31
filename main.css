@@ -1,11 +1,12 @@
 body
 {
   color: white;
+  font-family: 'Open Sans', sans-serif;
 }
 .jumbotron
 {
   background-color: #F2F2F2;
-  height: 85vh;
+  height: 100vh;
   --width: 320px;
   margin-bottom: : 0;
   margin-top: 0;
@@ -39,4 +40,24 @@ body
 {
   position: relative;
   left: -16px;
+}
+.input-group
+{
+  color: black;
+  text-align: center;
+  height: 200px;
+  width: 350px;
+}
+.input-group input
+{
+  height: 200px;
+  width: 350px;
+  font-size: 120px;
+  text-align: center;
+  position: relative;
+
+}
+.input-group-addon
+{
+  font-size: 120px;
 }
