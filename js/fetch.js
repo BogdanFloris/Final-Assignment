@@ -1,7 +1,7 @@
 function fetchWeekProgram(callback) {
 	$.ajax({
 		type: "GET",
-		url: "http://wwwis.win.tue.nl/2id40-ws/100/weekProgram",
+		url: "http://wwwis.win.tue.nl/2id40-ws/34/weekProgram",
 		dataType: "xml",
 		success: callback
 	});
