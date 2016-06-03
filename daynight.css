@@ -44,10 +44,10 @@ body
 {
   color: black;
   text-align: center;
-  height: 200px;
+  height: 100px;
   width: 100%;
 }
-img.displayed 
+img.displayed
 {
     display: block;
     margin-left: auto;
@@ -55,9 +55,9 @@ img.displayed
 }
 .input-group input
 {
-  height: 200px;
+  height: 100px;
   width: 100%%;
-  font-size: 100px;
+  font-size: 80px;
   text-align: center;
   position: relative;
 }
@@ -67,7 +67,8 @@ img.displayed
 }
 .input-group-addon
 {
-  font-size: 100px;
+  height: 100px;
+  font-size: 80px;
 }
 .radio
 {
