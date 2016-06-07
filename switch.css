@@ -1,0 +1,103 @@
+body
+{
+  background-color: #F2F2F2;
+  font-family: 'Open Sans', sans-serif;
+}
+.jumbotron
+{
+  background-color: #F2F2F2;
+  height: vh;
+  width: 100%;
+  margin-bottom: : 0;
+}
+.navbar {
+	margin-bottom: 0;
+  margin-top: 0;
+  --width: 320px;
+  background-color: #00688B;
+  color: white;
+}
+.navbar-inverse .navbar-nav li a {
+	color: #f7f7f7;
+	font-size: 16px;
+}
+.navbar-inverse .navbar-nav li a:hover
+{
+  background-color: inherit;
+  color: #fff;
+}
+.navbar-header .navbar-brand {
+    color: #fff;
+}
+.navbar-header a
+{
+  position: relative;
+  right: -20px;
+  color: #fff;
+}
+.navbar-left
+{
+  position: relative;
+  left: -16px;
+}
+.form-inline
+{
+  display: inline;
+}
+.form-group
+{
+  display: inline;
+  color: black;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+}
+.form-group input
+{
+  height: 8vh;
+  min-height: 10px;
+  width: 40%;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  margin-left: 50px;
+  margin-top: -35px;
+}
+.btn-default
+{
+  position: relative;
+  margin-left: 230px;
+  margin-top: -100px;
+  background: none;
+  border: none;
+  color: #05668D;
+}
+.jumbotron i
+{
+  font-size: 30px;
+}
+.btn-default i
+{
+  font-size: 70px;
+}
+#sun
+{
+  color: #FFEB3B;
+}
+
+#moon
+{
+  color: #8fc3d8;
+}
+.btn-primary
+{
+  margin-top: 20px;
+  font-size: 25px;
+  height: 70px;
+  width: 100%;
+}
+#button
+{
+  height: 10vh;
+  background-color: #00688b;
+}
