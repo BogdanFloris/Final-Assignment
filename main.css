@@ -45,6 +45,7 @@ body
   color: black;
   text-align: center;
   height: 20vh;
+  min-height: 100px;
   width: 100%;
 }
 img.displayed
@@ -58,7 +59,7 @@ img.displayed
   height: 20vh;
   min-height: 100px;
   width: 100%%;
-  font-size: 100px;
+  font-size: 80px;
   text-align: center;
   position: relative;
 }
