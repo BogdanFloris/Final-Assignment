@@ -97,3 +97,8 @@ body
   height: 70px;
   width: 100%;
 }
+#button
+{
+  height: 10vh;
+  background-color: #00688b;
+}
