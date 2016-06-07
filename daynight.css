@@ -47,15 +47,10 @@ body
   height: 100px;
   width: 100%;
 }
-img.displayed
-{
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
 .input-group input
 {
-  height: 100px;
+  height: 20vh;
+  min-height: 100px;
   width: 100%%;
   font-size: 80px;
   text-align: center;
@@ -67,9 +62,25 @@ img.displayed
 }
 .input-group-addon
 {
-  height: 100px;
+  height: 20vh;
+  min-height: 100px;
   font-size: 80px;
 }
+.jumbotron i
+{
+  font-size: 60px;
+  margin-left: 30vw;
+}
+#sun
+{
+  color: #FFEB3B;
+}
+
+#moon
+{
+  color: #8fc3d8;
+}
+
 .radio
 {
   text-align: left;
