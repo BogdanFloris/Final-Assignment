@@ -43,7 +43,7 @@ Program[Days.Friday]    = [];
 Program[Days.Saturday]  = [];
 Program[Days.Sunday]    = [];
 
-/* Retrive day program
+/* Retrieve day program
 */
 function getProgram(day) {
     return Program[day];
