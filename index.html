@@ -13,6 +13,38 @@
 
   </head>
   <body>
+
+  <!-- Scripts for the webservice -->
+
+  <script type="text/javascript">
+  			<!--
+  			var currentTime = new Date()
+  			var hours = currentTime.getHours()
+  			var minutes = currentTime.getMinutes()
+  			document.write(hours+":"+minutes);
+  			//-->
+  </script>
+
+  <script>
+        function getAll() {
+          document.getElementById('day').innerHTML=get("day", "current_day");
+          document.getElementById('time').innerHTML=get("time", "time");
+          document.getElementById('currentTemperature').innerHTML=get("currentTemperature", "current_temperature");
+          document.getElementById('targetTemperature').innerHTML=get("targetTemperature", "target_temperature");
+          document.getElementById('dayTemperature').innerHTML=get("dayTemperature", "day_temperature");
+          document.getElementById('nightTemperature').innerHTML=get("nightTemperature", "night_temperature");
+          document.getElementById('weekProgramState').innerHTML=get("weekProgramState", "week_program_state");
+        }
+
+        function updateTarget() {
+          put("targetTemperature", "target_temperature", "16.0");
+          document.getElementById('targetTemperature').innerHTML=get("targetTemperature", "target_temperature");
+
+        }
+
+  </script>
+
+  <!------------------------------------------>
     <nav class="navbar navbar-inverse navbar-static-top">
   	<div class="container">
   		<div class="navbar-header">
@@ -53,7 +85,7 @@
               Set temp permanently.
             </label>
           </div>
-          <button id = "button" type="submit" class="btn btn-primary btn-lg">Set Temperature</button>
+          <button id = "button" type="submit" class="btn btn-primary btn-lg" onclick="updateTarget();">Set Temperature</button>
         </form>
         </div>
       </div>
