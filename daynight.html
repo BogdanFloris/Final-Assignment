@@ -13,6 +13,33 @@
     <script src="https://use.fontawesome.com/812bbb0212.js"></script>
   </head>
   <body>
+
+    <p id="dayTemperature">
+    </p>
+
+    <script>
+
+      function getAll() {
+          document.getElementById('day').innerHTML=get("day", "current_day");
+          document.getElementById('time').innerHTML=get("time", "time");
+          document.getElementById('currentTemperature').innerHTML=get("currentTemperature", "current_temperature");
+          document.getElementById('targetTemperature').innerHTML=get("targetTemperature", "target_temperature");
+          document.getElementById('dayTemperature').innerHTML=get("dayTemperature", "day_temperature");
+          document.getElementById('nightTemperature').innerHTML=get("nightTemperature", "night_temperature");
+          document.getElementById('weekProgramState').innerHTML=get("weekProgramState", "week_program_state");
+      }
+
+      function updateTemp() {
+        var dayTemp = document.getElementById("day").value;
+        put("dayTemperature", "day_temperature", dayTemp);
+
+        var nightTemp = document.getElementById("night").value;
+        put("nightTemperature", "night_temperature", nightTemp);
+      }
+    </script>
+
+
+    <!--------------------------------------->
     <nav class="navbar navbar-inverse navbar-static-top">
   	<div class="container">
   		<div class="navbar-header">
@@ -40,28 +67,34 @@
           <i id="sun" class="fa fa-sun-o fa-1x fa-fw" aria-hidden="true" color="#FFEB3B";></i>
           <br/>
           <div class="input-group">
-            <input type="number" class="form-control" id="exampleInputAmount" placeholder="20,0" min="5" max="30" step="0.1" value="20,0">
+            <input type="number" class="form-control" id="day" placeholder="20,0" min="5" max="30" step="0.1" value="20,0">
             <div class="input-group-addon">°</div>
           </div>
           <br/>
           <i id="moon" class="fa fa-moon-o fa-1x fa-fw" aria-hidden="true" color="#8fc3d8"></i>
           <br/>
           <div class="input-group">
-            <input type="number" class="form-control" id="exampleInputAmount" placeholder="20,0" min="5" max="30" step="0.1" value="20,0">
+            <input type="number" class="form-control" id="night" placeholder="20,0" min="5" max="30" step="0.1" value="20,0">
             <div class="input-group-addon">°</div>
           </div>
-          <button id = "button" type="submit" class="btn btn-primary btn-lg">Set Temperature</button>
+          <button id = "button" type="submit" class="btn btn-primary btn-lg" onclick="updateTemp();">Set Temperature</button>
         </form>
         </div>
       </div>
     </div>
 
-
+  <script src="js/api.js"></script>
   <script src="https://use.fontawesome.com/812bbb0212.js"></script>
   <script src="jquery-ui-1.11.4/external/jquery/jquery.js"></script>
   <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
   <script src="bootstrap-touchspin-master/jquery.bootstrap-touchspin.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="jscode.js"></script>
+
+  <script>
+  document.getElementById('dayTemperature').innerHTML=get("dayTemperature", "day_temperature");
+  document.getElementById('nightTemperature').innerHTML=get("nightTemperature", "night_temperature");
+</script>
+
   </body>
 </html>

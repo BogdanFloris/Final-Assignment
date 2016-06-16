@@ -12,22 +12,6 @@
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,900' rel='stylesheet' type='text/css'>
 
   </head>
-  <body>
-
-  <!-- Pascal (15-6) -->
-  <p id="targetTemperature">
-  </p>
-
-  <!-- Scripts for the webservice -->
-
-  <script type="text/javascript">
-  			<!--
-  			var currentTime = new Date()
-  			var hours = currentTime.getHours()
-  			var minutes = currentTime.getMinutes()
-  			document.write(hours+":"+minutes);
-        -->
-  </script>
 
   <script>
         function getAll() {
@@ -90,6 +74,10 @@
             </label>
           </div>
           <button id = "button" type="submit" class="btn btn-primary btn-lg" onclick="updateTarget();">Set Temperature</button>
+          <!-- Maybe we should change this to 2 buttons, one for next switch and one for permanent.
+          This would make it easier to update whether we have to use the week program, since that is just
+          setting the value to yes or no. I don't yet know how to do that with the current button setup so
+          maybe it is easier if we just add two buttons instead of the one we have now. -->
         </form>
         </div>
       </div>
@@ -103,7 +91,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="jscode.js"></script>
 
-    <script>
+  <script>
     document.getElementById("targetTemperature").innerHTML=get("targetTemperature", "target_temperature");
   </script>
   </body>
