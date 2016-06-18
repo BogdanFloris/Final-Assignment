@@ -11,18 +11,8 @@
     <link rel="stylesheet" href="switch.css">
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,900' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/812bbb0212.js"></script>
-    <script>
-      function showInput()
-      {
-        var display = document.getElementById('display');
-        var day = document.getElementById("number_day").value;
-        var night = document.getElementById("number_night").value;
+    <script src="js/week_overview.js"></script>
 
-        display.innerHTML = "";
-        display.innerHTML += "cartof";
-        //document.getElementById("display").innerHTML = day;
-      }
-    </script>
   </head>
 
   <body>
@@ -46,19 +36,21 @@
   		</div>
   	</div>
   </nav>
+  </nav>
   <div class="jumbotron">
     <div class="container">
       <div class="col-md-4">
         <form class="form-inline">
           <div class="form-group">
-            <label for="number_day"><i id="sun" class="fa fa-sun-o fa-1x fa-fw" aria-hidden="true" color="#FFEB3B";></i></label>
-            <input type="time" class="form-control" id="number_day">
+            <label for="day"><i id="sun" class="fa fa-sun-o fa-1x fa-fw" aria-hidden="true" color="#FFEB3B";></i></label>
+            <input type="time" class="form-control" id="one">
           </div>
           <div class="form-group">
-            <label for="number_night"><i id="moon" class="fa fa-moon-o fa-1x fa-fw" aria-hidden="true" color="#8fc3d8"></i></label>
-            <input type="time" class="form-control" id="number_night">
+            <label for="night"><i id="moon" class="fa fa-moon-o fa-1x fa-fw" aria-hidden="true" color="#8fc3d8"></i></label>
+            <input type="time" class="form-control" id="two">
           </div>
-          <button type="submit" id = "myButton" class="btn btn-default" onclick="showInput();"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+          <button type="submit" id = "save_button" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+          <button type='button' id = "remove_button" class="btn btn-danger" onClick="removeAll();"><i class="fa fa-times" aria-hidden="true"></i></button>
         </form>
       </div>
     </div>
@@ -66,8 +58,16 @@
   <div class="jumbotron show">
     <div class="container">
       <div class="col-md-4">
-        <div id="display"></div>
+        <div id="rightbox"></div>
       </div>
     </div>
   </div>
+
+  <script src="js/api.js"></script>
+  <script src="https://use.fontawesome.com/812bbb0212.js"></script>
+  <script src="jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+  <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+  <script src="bootstrap-touchspin-master/jquery.bootstrap-touchspin.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="jscode.js"></script>
   </body>

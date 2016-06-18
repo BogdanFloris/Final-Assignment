@@ -63,22 +63,31 @@ body
   margin-left: 50px;
   margin-top: -35px;
 }
-.btn-default
-{
-  position: relative;
-  margin-left: 230px;
-  margin-top: -100px;
-  background: none;
-  border: none;
-  color: #05668D;
-}
 .jumbotron i
 {
   font-size: 30px;
 }
-.btn-default i
+.btn-success i
 {
-  font-size: 70px;
+  position: relative;
+  font-size: 30px;
+  width: 23px;
+}
+.btn-danger i
+{
+  font-size: 30px;
+}
+#save_button
+{
+  position: relative;
+  margin-left: 230px;
+  margin-top: -110px;
+  margin-right: 7px;
+}
+#remove_button
+{
+  position: relative;
+  margin-top: -110px;
 }
 #sun
 {
@@ -89,15 +98,9 @@ body
 {
   color: #8fc3d8;
 }
-.btn-primary
+.show
 {
-  margin-top: 20px;
+  margin-top: -30px;
   font-size: 25px;
-  height: 70px;
-  width: 100%;
-}
-#button
-{
-  height: 10vh;
-  background-color: #00688b;
+  color: #5B5B5B;
 }
