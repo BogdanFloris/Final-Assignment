@@ -10,53 +10,69 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,900' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   </head>
 
   <script>
+      var day;
+      var time;
+      var currentTemperature;
+      var targetTemperature;
+      var dayTemp;
+      var nightTemp;
+      var state;
+      var currentTemp = "Current Temperature - "
 
-    document.getElementsByName('temperature')[0].placeholder= document.getElementById('targetTemperature').value;
+      $(document).ready(function(){
+        updateInterval = setInterval(function(){
+          $.ajax({
+            type: "get",
+            url: "http://wwwis.win.tue.nl/2id40-ws/34",
+            dataType: "xml",
+            success: parse
+          });
+        }, 200);
+      });
 
-        function getAll() {
-          document.getElementById('day').innerHTML=get("day", "current_day");
-          document.getElementById('time').innerHTML=get("time", "time");
-          document.getElementById('currentTemperature').innerHTML=get("currentTemperature", "current_temperature");
-          document.getElementById('targetTemperature').innerHTML=get("targetTemperature", "target_temperature");
-          document.getElementById('dayTemperature').innerHTML=get("dayTemperature", "day_temperature");
-          document.getElementById('nightTemperature').innerHTML=get("nightTemperature", "night_temperature");
-          document.getElementById('weekProgramState').innerHTML=get("weekProgramState", "week_program_state");
-        }
+      function parse(document){
+          currentTemperature = parseFloat($(document).find('current_temperature').text());
 
-        function updateTarget() {
-          var temperature = document.getElementById("exampleInputAmount").value;
-          put("targetTemperature", "target_temperature", temperature);
-          //document.getElementById("targetTemperature").innerHTML=get("targetTemperature", "target_temperature");
-        }
+          update();
 
+      }
 
+      function update(){
+          $("#curTemp").html(currentTemp+currentTemperature);
+      }
+
+      function updateTarget() {
+        var temperature = document.getElementById("exampleInputAmount").value;
+        put("targetTemperature", "target_temperature", temperature);
+        //document.getElementById("targetTemperature").innerHTML=get("targetTemperature", "target_temperature");
+      }
   </script>
 
   <!------------------------------------------>
     <nav class="navbar navbar-inverse navbar-static-top">
-  	<div class="container">
-  		<div class="navbar-header">
-  			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-  				<span class="sr-only">Toggle navigation</span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  			</button>
-  			<a class="navbar-brand">Current Temperature - <p style="display:inline" id="currentTemperature"> Target Temperature - <span id="targetTemperature" /> </p></a>
-        <p id="targetTemperature" />
-  		</div>
-  		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  			<ul class="nav navbar-nav navbar-right">
-  				<li><a href="index.html">Set Temperature</a></li>
-  				<li><a href="weekoverview.html">Week Overview</a></li>
-  				<li><a href="daynight.html">Day & Night</a></li>
-  			</ul>
-  		</div>
-  	</div>
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id = "curTemp">
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">Set Temperature</a></li>
+                <li><a href="weekoverview.html">Week Overview</a></li>
+                <li><a href="daynight.html">Day & Night</a></li>
+            </ul>
+        </div>
+    </div>
   </nav>
     <div class="jumbotron">
       <div class="container">
@@ -98,9 +114,5 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="jscode.js"></script>
 
-  <script>
-    document.getElementById("targetTemperature").innerHTML=get("targetTemperature", "target_temperature");
-    document.getElementById("currentTemperature").innerHTML=get("currentTemperature", "current_temperature");
-  </script>
   </body>
 </html>

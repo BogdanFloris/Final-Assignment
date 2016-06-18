@@ -16,6 +16,39 @@
   </head>
 
   <body>
+    <!-- You'll probably need these scripts instead of the weekoverview ones -->
+    <script>
+      var day;
+      var time;
+      var currentTemperature;
+      var targetTemperature;
+      var dayTemp;
+      var nightTemp;
+      var state;
+      var currentTemp = "Current Temperature - "
+
+      $(document).ready(function(){
+        updateInterval = setInterval(function(){
+          $.ajax({
+            type: "get",
+            url: "http://wwwis.win.tue.nl/2id40-ws/34",
+            dataType: "xml",
+            success: parse
+          });
+        }, 200);
+      });
+
+      function parse(document){
+          currentTemperature = parseFloat($(document).find('current_temperature').text());
+
+          update();
+
+      }
+
+      function update(){
+          $("#curTemp").html(currentTemp+currentTemperature);
+      }
+    </script>
     <nav class="navbar navbar-inverse navbar-static-top">
   	<div class="container">
   		<div class="navbar-header">

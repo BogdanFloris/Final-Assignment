@@ -15,16 +15,36 @@
   <body>
 
     <script>
+    var day;
+    var time;
+    var currentTemperature;
+    var targetTemperature;
+    var dayTemp;
+    var nightTemp;
+    var state;
+    var currentTemp = "Current Temperature - "
 
-      function getAll() {
-          document.getElementById('day').innerHTML=get("day", "current_day");
-          document.getElementById('time').innerHTML=get("time", "time");
-          document.getElementById('currentTemperature').innerHTML=get("currentTemperature", "current_temperature");
-          document.getElementById('targetTemperature').innerHTML=get("targetTemperature", "target_temperature");
-          document.getElementById('dayTemperature').innerHTML=get("dayTemperature", "day_temperature");
-          document.getElementById('nightTemperature').innerHTML=get("nightTemperature", "night_temperature");
-          document.getElementById('weekProgramState').innerHTML=get("weekProgramState", "week_program_state");
-      }
+    $(document).ready(function(){
+      updateInterval = setInterval(function(){
+        $.ajax({
+          type: "get",
+          url: "http://wwwis.win.tue.nl/2id40-ws/34",
+          dataType: "xml",
+          success: parse
+        });
+      }, 200);
+    });
+
+    function parse(document){
+        currentTemperature = parseFloat($(document).find('current_temperature').text());
+
+        update();
+
+    }
+
+    function update(){
+        $("#curTemp").html(currentTemp+currentTemperature);
+    }
 
       function updateTemp() {
         var dayTemp = document.getElementById("day").value;
@@ -88,10 +108,6 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="jscode.js"></script>
 
-  <script>
-  document.getElementById('dayTemperature').innerHTML=get("dayTemperature", "day_temperature");
-  document.getElementById('nightTemperature').innerHTML=get("nightTemperature", "night_temperature");
-</script>
 
   </body>
 </html>
