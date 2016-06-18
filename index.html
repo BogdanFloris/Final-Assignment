@@ -14,6 +14,9 @@
   </head>
 
   <script>
+
+    document.getElementsByName('temperature')[0].placeholder= document.getElementById('targetTemperature').value;
+
         function getAll() {
           document.getElementById('day').innerHTML=get("day", "current_day");
           document.getElementById('time').innerHTML=get("time", "time");
@@ -30,6 +33,7 @@
           //document.getElementById("targetTemperature").innerHTML=get("targetTemperature", "target_temperature");
         }
 
+
   </script>
 
   <!------------------------------------------>
@@ -42,8 +46,8 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Current Temperature - <p style="display:inline" id="targetTemperature"></p></a>
-        <p id="targetTemperature"></p>
+  			<a class="navbar-brand">Current Temperature - <p style="display:inline" id="currentTemperature"> Target Temperature - <span id="targetTemperature" /> </p></a>
+        <p id="targetTemperature" />
   		</div>
   		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   			<ul class="nav navbar-nav navbar-right">
@@ -58,9 +62,11 @@
       <div class="container">
         <div class="col-md-4">
         <form>
+          Choose a target temperature
           <div class="input-group">
-            <input type="number" class="form-control" id="exampleInputAmount" placeholder="20.0" min="5" max="30" step="0.1" value="20,0">
+            <input type="number" name="temperature" class="form-control" id="exampleInputAmount" placeholder="20.0" min="5" max="30" step="0.1" value="20,0">
             <div class="input-group-addon">°</div>
+
           </div>
           <div class="radio">
             <label>
@@ -94,6 +100,7 @@
 
   <script>
     document.getElementById("targetTemperature").innerHTML=get("targetTemperature", "target_temperature");
+    document.getElementById("currentTemperature").innerHTML=get("currentTemperature", "current_temperature");
   </script>
   </body>
 </html>
