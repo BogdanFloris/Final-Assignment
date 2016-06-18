@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-
-<head>
+<html>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Weekoverview</title>
+    <title>Thermostat</title>
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,900' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="switch.css">
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,900' rel='stylesheet' type='text/css'>
-</head>
-<body>
-   <nav class="navbar navbar-inverse navbar-static-top">
+    <script src="https://use.fontawesome.com/812bbb0212.js"></script>
+    <script src="js/week_overview.js"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-static-top">
   	<div class="container">
   		<div class="navbar-header">
   			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -21,7 +25,7 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Week overview</a>
+  			<a class="navbar-brand" href="#">Thursday</a>
   		</div>
   		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   			<ul class="nav navbar-nav navbar-right">
@@ -32,25 +36,38 @@
   		</div>
   	</div>
   </nav>
-<div class="container ">
-<a href="monday.html" id = "button" class="btn btn-primary btn-block btn-lg " role="button"><span class ="push-left">Monday</span></a>
-<a href="tuesday.html" id = "button" class="btn btn-primary btn-block btn-lg" role="button"><span class ="push-left">Tuesday</span></a>
-<a href="wednesday.html" id = "button" class="btn btn-primary btn-block btn-lg" role="button"><span class ="push-left">Wednesday</span></a>
-<a href="thursday.html" id = "button" class="btn btn-primary btn-block btn-lg" role="button"><span class ="push-left">Thursday</span></a>
-<a href="friday.html" id = "button" class="btn btn-primary btn-block btn-lg" role="button"><span class ="push-left">Friday</span></a>
-<a href="saturday.html" id = "button" class="btn btn-primary btn-block btn-lg" role="button"><span class ="push-left">Saturday</span></a>
-<a href="sunday.html" id = "button" class="btn btn-primary btn-block btn-lg" role="button"><span class ="push-left">Sunday</span></a>
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="col-md-4">
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="day"><i id="sun" class="fa fa-sun-o fa-1x fa-fw" aria-hidden="true" color="#FFEB3B";></i></label>
+            <input type="time" class="form-control" id="one">
+          </div>
+          <div class="form-group">
+            <label for="night"><i id="moon" class="fa fa-moon-o fa-1x fa-fw" aria-hidden="true" color="#8fc3d8"></i></label>
+            <input type="time" class="form-control" id="two">
+          </div>
+          <button type="submit" id = "save_button" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+          <button type='button' id = "remove_button" class="btn btn-danger" onClick="removeAll();"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron show">
+    <div class="container">
+      <div class="col-md-4">
+        <div id="rightbox"></div>
+      </div>
+    </div>
+  </div>
 
-</div>
-
+  <script src="js/api.js"></script>
   <script src="https://use.fontawesome.com/812bbb0212.js"></script>
   <script src="jquery-ui-1.11.4/external/jquery/jquery.js"></script>
   <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
   <script src="bootstrap-touchspin-master/jquery.bootstrap-touchspin.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="jscode.js"></script>
-
-
-</body>
-
-</html>
+  </body>
