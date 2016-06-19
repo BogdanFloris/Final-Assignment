@@ -38,6 +38,8 @@
       function parse(document){
           currentTemperature = parseFloat($(document).find('current_temperature').text());
           weekState = $(document).find('week_program_state').text();
+          dayAsk = $(document).find('current_day').text();
+          timeAsk = $(document).find('time').text();
           update();
           checkProgram();
       }
@@ -51,6 +53,7 @@
       function update(){
           $("#curTemp").html(currentTemp+currentTemperature + '°C');
           document.getElementById("exampleInputAmount").placeholder = currentTemperature + '°C';
+          $("#time").html(dayAsk+ " "+timeAsk);
       }
 
       function backOn(){
@@ -102,6 +105,7 @@
       <div class="container">
         <div class="col-md-4">
         <form>
+          <div id="time"></div>
             <div id = "back"></div>
           Choose a target temperature
           <div class="input-group">
