@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="switch.css">
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,900' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/812bbb0212.js"></script>
-    <script src="js/week_overview.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   </head>
 
@@ -39,15 +39,18 @@
       });
 
       function parse(document){
-          currentTemperature = parseFloat($(document).find('current_temperature').text());
-
+          currentDay = $(document).find('current_day').text();
+          getProgram(Monday);
+          sortMergeProgram(\Monday);
           update();
 
       }
 
       function update(){
-          $("#curTemp").html(currentTemp+currentTemperature);
+          $("#curTemp").html(currentDay);
+          setWeekProgram();
       }
+
     </script>
     <nav class="navbar navbar-inverse navbar-static-top">
   	<div class="container">
@@ -58,7 +61,7 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Monday</a>
+  			<a class="navbar-brand" id="curTemp"</a>
   		</div>
   		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   			<ul class="nav navbar-nav navbar-right">
@@ -82,7 +85,7 @@
             <label for="night"><i id="moon" class="fa fa-moon-o fa-1x fa-fw" aria-hidden="true" color="#8fc3d8"></i></label>
             <input type="time" class="form-control" id="two">
           </div>
-          <button type="submit" id = "save_button" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+          <button type="submit" id = "save_button" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true" onclick="addPeriod(currentDay, one, two);"></i></button>
           <button type='button' id = "remove_button" class="btn btn-danger" onClick="removeAll();"><i class="fa fa-times" aria-hidden="true"></i></button>
         </form>
       </div>

@@ -35,14 +35,14 @@
     });
 
     function parse(document){
-        currentTemperature = $(document).find('current_day').text();
+        currentDay = $(document).find('current_day').text();
 
         update();
 
     }
 
     function update(){
-        $("#curTemp").html(currentTemp+currentTemperature);
+        $("#curTemp").html(currentDay);
     }
 
     function updateTarget() {
