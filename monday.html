@@ -18,13 +18,14 @@
   <body>
     <!-- You'll probably need these scripts instead of the weekoverview ones -->
     <script>
-      var day;
+      var currentDay;
       var time;
       var currentTemperature;
       var targetTemperature;
       var dayTemp;
       var nightTemp;
       var state;
+      var test;
       var currentTemp = "Current Temperature - "
 
       $(document).ready(function(){
@@ -40,15 +41,65 @@
 
       function parse(document){
           currentDay = $(document).find('current_day').text();
-          getProgram(Monday);
-          sortMergeProgram(\Monday);
+          time = $(document).find('time').text();
+          test = getProgram('Monday');
+          sortMergeProgram('Monday');
+          addPeriod('Monday', "00:00", "00:00");
           update();
-
+          write();
       }
 
+      function write(){
+              if (test[0] != null){
+                  display.innerHTML = "Day: " + test[0][0] +" Night: " + test[0][1]
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 0);\"/>"+ "<br/>" ;
+              }
+              if (test[1] != null){
+                  display.innerHTML = "Day: " + test[0][0] + " Night: " + test[0][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 0);\"/>"+ "<br/>" +
+                  "Day: " + test[1][0] + " Night: " + test[1][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 1);\"/>"+ "<br/>" ;
+              }
+              if (test[2] != null){
+                  display.innerHTML = "Day: " + test[0][0] + " Night: " + test[0][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 0);\"/>"+ "<br/>" +
+                  "Day: " + test[1][0] +  " Night: " + test[1][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 1);\"/>"+ "<br/>" +
+                  "Day: " + test[2][0] +" Night: " + test[2][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 2);\"/>"+ "<br/>" ;
+              }
+              if (test[3] != null){
+                  display.innerHTML = "Day: " + test[0][0] +" Night: " + test[0][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 0);\"/>"+ "<br/>" +
+                  "Day: " + test[1][0] +" Night: " + test[1][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 1);\"/>"+ "<br/>" +
+                  "Day: " + test[2][0] +" Night: " + test[2][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 2);\"/>"+ "<br/>" +
+                  "Day: " + test[3][0] +" Night: " + test[3][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 3);\"/>"+ "<br/>" ;
+              }
+              if (test[4] != null){
+                  display.innerHTML = "Day: " + test[0][0] +" Night: " + test[0][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 0);\"/>"+ "<br/>" +
+                  "Day: " + test[1][0] +" Night: " + test[1][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 1);\"/>"+ "<br/>" +
+                  "Day: " + test[2][0] +" Night: " + test[2][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 2);\"/>"+ "<br/>" +
+                  "Day: " + test[3][0] +" Night: " + test[3][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 3);\"/>"+ "<br/>" +
+                  "Day: " + test[4][0] +" Night: " + test[4][1] +
+                  "<input type='button' value = 'Remove' onclick=\"removePeriod('Monday', 4);\"/>"+ "<br/>" ;
+              }
+          }
+
       function update(){
-          $("#curTemp").html(currentDay);
-          setWeekProgram();
+          $("#curTemp").html("Monday");
+      }
+
+      function updateSwitch(){
+        var day = document.getElementById("one").value;
+        var night = document.getElementById("two").value;
+        addPeriod('Monday', day, night);
       }
 
     </script>
@@ -85,7 +136,7 @@
             <label for="night"><i id="moon" class="fa fa-moon-o fa-1x fa-fw" aria-hidden="true" color="#8fc3d8"></i></label>
             <input type="time" class="form-control" id="two">
           </div>
-          <button type="submit" id = "save_button" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true" onclick="addPeriod(currentDay, one, two);"></i></button>
+          <button type="submit" id = "save_button" class="btn btn-success" onclick="updateSwitch();"><i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
           <button type='button' id = "remove_button" class="btn btn-danger" onClick="removeAll();"><i class="fa fa-times" aria-hidden="true"></i></button>
         </form>
       </div>
@@ -94,7 +145,7 @@
   <div class="jumbotron show">
     <div class="container">
       <div class="col-md-4">
-        <div id="rightbox"></div>
+        <div id="display"></div>
       </div>
     </div>
   </div>
