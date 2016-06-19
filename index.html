@@ -37,13 +37,24 @@
 
       function parse(document){
           currentTemperature = parseFloat($(document).find('current_temperature').text());
-
+          weekState = $(document).find('week_program_state').text();
           update();
+          checkProgram();
+      }
 
+      function checkProgram(){
+          if(weekState == 'off'){
+              $("#back").html('<button id = "button" type="submit" class="btn btn-primary btn-lg" onclick=\"backOn();\">Back to weekprogram</button>');
+          }
       }
 
       function update(){
-          $("#curTemp").html(currentTemp+currentTemperature);
+          $("#curTemp").html(currentTemp+currentTemperature + '°C');
+          document.getElementById("exampleInputAmount").placeholder = currentTemperature + '°C';
+      }
+
+      function backOn(){
+        put("weekProgramState", "week_program_state", "on");
       }
 
       function updateTarget() {
@@ -51,9 +62,11 @@
         {
           var temperature = document.getElementById("exampleInputAmount").value;
           put("targetTemperature", "target_temperature", temperature);
-          put("weekProgramState", "week_program_state", "on");
+          //put("weekProgramState", "week_program_state", "on");
+          followProgram();
         }
-        else if(document.getElementById("optionsRadios2").checked)
+
+        if(document.getElementById("optionsRadios2").checked)
         {
           var temperature = document.getElementById("exampleInputAmount").value;
           put("targetTemperature", "target_temperature", temperature);
@@ -73,13 +86,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" id = "curTemp">
+            <a id = "curTemp" class="navbar-brand" href="index.html"></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.html">Set Temperature</a></li>
+                <li><a href="currentday.html">Program for today</a></li>
                 <li><a href="weekoverview.html">Week Overview</a></li>
-                <li><a href="daynight.html">Day & Night</a></li>
+                <li><a href="daynight.html">Set Day and Night temperatures</a></li>
             </ul>
         </div>
     </div>
@@ -88,9 +102,10 @@
       <div class="container">
         <div class="col-md-4">
         <form>
+            <div id = "back"></div>
           Choose a target temperature
           <div class="input-group">
-            <input type="number" name="temperature" class="form-control" id="exampleInputAmount" placeholder="20.0" min="5" max="30" step="0.1" value="20,0">
+            <input type="number" name="temperature" class="form-control" id="exampleInputAmount" min="5" max="30" step="0.1" value="20,0">
             <div class="input-group-addon">°</div>
 
           </div>

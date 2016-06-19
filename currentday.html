@@ -42,92 +42,93 @@
       function parse(document){
           currentDay = $(document).find('current_day').text();
           time = $(document).find('time').text();
-          test = getProgram('Wednesday');
-          sortMergeProgram('Wednesday');
-          addPeriod('Wednesday', "00:00", "00:00");
+          test = getProgram(currentDay);
+          sortMergeProgram(currentDay);
+          addPeriod(currentDay, "00:00", "00:00");
           update();
           write();
       }
 
       function update(){
           put("weekProgramState", "week_program_state", "on");
+          $("#curDay").html(currentDay);
       }
 
       function write(){
               if (test[0] != null){
                   display.innerHTML = "Day: " + test[0][0] +" Night: " + test[0][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 0);\"/>"+ "<br/>" ;
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 0);\"/>"+ "<br/>" ;
               }
               if (test[1] != null){
                   display.innerHTML = "Day: " + test[0][0] + " Night: " + test[0][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 0);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 0);\"/>"+ "<br/>" +
                   "Day: " + test[1][0] + " Night: " + test[1][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 1);\"/>"+ "<br/>" ;
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 1);\"/>"+ "<br/>" ;
               }
               if (test[2] != null){
                   display.innerHTML = "Day: " + test[0][0] + " Night: " + test[0][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 0);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 0);\"/>"+ "<br/>" +
                   "Day: " + test[1][0] +  " Night: " + test[1][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 1);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 1);\"/>"+ "<br/>" +
                   "Day: " + test[2][0] +" Night: " + test[2][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 2);\"/>"+ "<br/>" ;
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 2);\"/>"+ "<br/>" ;
               }
               if (test[3] != null){
                   display.innerHTML = "Day: " + test[0][0] +" Night: " + test[0][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 0);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 0);\"/>"+ "<br/>" +
                   "Day: " + test[1][0] +" Night: " + test[1][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 1);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 1);\"/>"+ "<br/>" +
                   "Day: " + test[2][0] +" Night: " + test[2][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 2);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 2);\"/>"+ "<br/>" +
                   "Day: " + test[3][0] +" Night: " + test[3][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 3);\"/>"+ "<br/>" ;
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 3);\"/>"+ "<br/>" ;
               }
               if (test[4] != null){
                   display.innerHTML = "Day: " + test[0][0] +" Night: " + test[0][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 0);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 0);\"/>"+ "<br/>" +
                   "Day: " + test[1][0] +" Night: " + test[1][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 1);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 1);\"/>"+ "<br/>" +
                   "Day: " + test[2][0] +" Night: " + test[2][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 2);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 2);\"/>"+ "<br/>" +
                   "Day: " + test[3][0] +" Night: " + test[3][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 3);\"/>"+ "<br/>" +
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 3);\"/>"+ "<br/>" +
                   "Day: " + test[4][0] +" Night: " + test[4][1] +
-                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod('Wednesday', 4);\"/>"+ "<br/>" ;
+                  "<input type='button' id = 'remove' value = 'Remove' onclick=\"removePeriod(currentDay, 4);\"/>"+ "<br/>" ;
               }
           }
 
           function deleteDay(){
             if (test[0] != null){
-              removePeriod('Wednesday', 0);
+              removePeriod(currentDay, 0);
             }
             if (test[1] != null){
-              removePeriod('Wednesday', 1);
-              removePeriod('Wednesday', 0);
+              removePeriod(currentDay, 1);
+              removePeriod(currentDay, 0);
             }
             if (test[2] != null){
-              removePeriod('Wednesday', 2);
-              removePeriod('Wednesday', 1);
-              removePeriod('Wednesday', 0);
+              removePeriod(currentDay, 2);
+              removePeriod(currentDay, 1);
+              removePeriod(currentDay, 0);
             }
             if (test[3] != null){
-              removePeriod('Wednesday', 3);
-              removePeriod('Wednesday', 2);
-              removePeriod('Wednesday', 1);
-              removePeriod('Wednesday', 0);
+              removePeriod(currentDay, 3);
+              removePeriod(currentDay, 2);
+              removePeriod(currentDay, 1);
+              removePeriod(currentDay, 0);
             }
             if (test[4] != null){
-                removePeriod('Wednesday', 4);
-                removePeriod('Wednesday', 3);
-                removePeriod('Wednesday', 2);
-                removePeriod('Wednesday', 1);
-                removePeriod('Wednesday', 0);
+                removePeriod(currentDay, 4);
+                removePeriod(currentDay, 3);
+                removePeriod(currentDay, 2);
+                removePeriod(currentDay, 1);
+                removePeriod(currentDay, 0);
             }
         }
 
       function updateSwitch(){
         var day = document.getElementById("one").value;
         var night = document.getElementById("two").value;
-        addPeriod('Wednesday', day, night);
+        addPeriod(currentDay, day, night);
       }
 
     </script>
@@ -140,7 +141,7 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="index.html">Wednesday</a>
+  			<a class="navbar-brand" id = "curDay" href="index.html"></a>
   		</div>
   		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   			<ul class="nav navbar-nav navbar-right">

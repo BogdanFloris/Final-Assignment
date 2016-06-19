@@ -34,6 +34,8 @@ var CurrentTemperature;
 var TargetTemperature;
 var ProgramState;
 
+var programTest;
+
 var Program = {};
 Program[Days.Monday]    = [];
 Program[Days.Tuesday]   = [];
@@ -49,6 +51,26 @@ function getProgram(day) {
     return Program[day];
 }
 
+/* Changes the temperature according to the status of the week program
+*/
+function followProgram(){
+    Time = document.getElementById('day').innerHTML=get("day", "current_day");
+    Day = document.getElementById('time').innerHTML=get("time", "time");
+    DayTemperature = document.getElementById('dayTemperature').innerHTML=get("dayTemperature", "day_temperature");
+    ProgramState = document.getElementById('weekProgramState').innerHTML=get("weekProgramState", "week_program_state");
+    if(ProgramState == 'on'){
+        programTest = getProgram('Day');
+
+        if(Time == programTest[0][0] || Time == programTest[1][0] || programTest[2][0] || Time == programTest[3][0] || programTest[4][0]){
+            var temperature = DayTemperature;
+            put("targetTemperature", "target_temperature", temperature);
+        }
+        else if(Time == programTest[0][1] || Time == programTest[1][1] || programTest[2][1] || Time == programTest[3][1] || programTest[4][1]){
+            var temperature = NightTemperature;
+            put("targetTemperature", "target_temperature", temperature);
+        }
+    }
+}
 /* Sorts the heating periods (the periods when the heating is on) and merges overlapping ones
 */
 function sortMergeProgram(day) {

@@ -77,6 +77,9 @@ img.displayed
 {
   font-size: 80px;
 }
+#curTemp{
+  max-height: inherit;
+}
 .radio
 {
   text-align: left;

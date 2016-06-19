@@ -3,6 +3,15 @@ body
   background-color: #F2F2F2;
   font-family: 'Open Sans', sans-serif;
 }
+
+#remove{
+    width: 60px;
+    display: block;
+    font-size: 10px;
+    margin-top: -2.7vh;
+    margin-left: 70vw;
+}
+
 .jumbotron
 {
   background-color: #F2F2F2;
@@ -104,4 +113,11 @@ body
   margin-left: -20px;
   font-size: 23px;
   color: #5B5B5B;
+}
+
+#button
+{
+  height: 10vh;
+  background-color: #00688b;
+  margin-left: 22vw;
 }

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="daynight.css">
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,900' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/812bbb0212.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
   <body>
 
@@ -19,8 +20,8 @@
     var time;
     var currentTemperature;
     var targetTemperature;
-    var dayTemp;
-    var nightTemp;
+    var dayTemps;
+    var nightTemps;
     var state;
     var currentTemp = "Current Temperature - "
 
@@ -37,13 +38,16 @@
 
     function parse(document){
         currentTemperature = parseFloat($(document).find('current_temperature').text());
+        dayTemps = parseFloat($(document).find('day_temperature').text());
+        nightTemps = parseFloat($(document).find('night_temperature').text());
 
         update();
 
     }
 
     function update(){
-        $("#curTemp").html(currentTemp+currentTemperature);
+        document.getElementById("day").placeholder = dayTemps + '°C';
+        document.getElementById("night").placeholder = nightTemps + '°C';
     }
 
       function updateTemp() {
@@ -66,11 +70,12 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Day and Night Temperature</a>
+  			<a class="navbar-brand" href="index.html">Day and Night Temperature</a>
   		</div>
   		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   			<ul class="nav navbar-nav navbar-right">
   				<li><a href="index.html">Set Temperature</a></li>
+          <li><a href="currentday.html">Program for today</a></li>
   				<li><a href="weekoverview.html">Week Overview</a></li>
   				<li><a href="daynight.html">Day & Night</a></li>
   			</ul>
@@ -84,14 +89,14 @@
           <i id="sun" class="fa fa-sun-o fa-1x fa-fw" aria-hidden="true" color="#FFEB3B";></i>
           <br/>
           <div class="input-group">
-            <input type="number" class="form-control" id="day" placeholder="20,0" min="5" max="30" step="0.1" value="20,0">
+            <input type="number" name = "dayInput" class="form-control" id="day" min="5" max="30" step="0.1" value="20,0">
             <div class="input-group-addon">°</div>
           </div>
           <br/>
           <i id="moon" class="fa fa-moon-o fa-1x fa-fw" aria-hidden="true" color="#8fc3d8"></i>
           <br/>
           <div class="input-group">
-            <input type="number" class="form-control" id="night" placeholder="20,0" min="5" max="30" step="0.1" value="20,0">
+            <input type="number" name = "nightInput" class="form-control" id="night" min="5" max="30" step="0.1" value="20,0">
             <div class="input-group-addon">°</div>
           </div>
           <button id = "button" type="submit" class="btn btn-primary btn-lg" onclick="updateTemp();">Set Temperature</button>
