@@ -47,8 +47,18 @@
       }
 
       function updateTarget() {
-        var temperature = document.getElementById("exampleInputAmount").value;
-        put("targetTemperature", "target_temperature", temperature);
+        if(document.getElementById("optionsRadios1").checked)
+        {
+          var temperature = document.getElementById("exampleInputAmount").value;
+          put("targetTemperature", "target_temperature", temperature);
+          put("weekProgramState", "week_program_state", "on");
+        }
+        else if(document.getElementById("optionsRadios2").checked)
+        {
+          var temperature = document.getElementById("exampleInputAmount").value;
+          put("targetTemperature", "target_temperature", temperature);
+          put("weekProgramState", "week_program_state", "off");
+        }
         //document.getElementById("targetTemperature").innerHTML=get("targetTemperature", "target_temperature");
       }
   </script>
